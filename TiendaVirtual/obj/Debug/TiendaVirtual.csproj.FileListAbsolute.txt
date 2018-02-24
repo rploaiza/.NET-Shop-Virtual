@@ -163,9 +163,9 @@ C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\bin\Microsoft.Owin
 C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\obj\Debug\TiendaVirtual.csprojResolveAssemblyReference.cache
 C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\obj\Debug\TiendaVirtual.Properties.Resources.resources
 C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\obj\Debug\TiendaVirtual.csproj.GenerateResource.Cache
 C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\obj\Debug\TiendaVirtual.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\obj\Debug\TiendaVirtual.dll
 C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\obj\Debug\TiendaVirtual.pdb
+C:\Users\Usuario\source\repos\.NET-Shop-Virtual\TiendaVirtual\obj\Debug\TiendaVirtual.csprojResolveAssemblyReference.cache

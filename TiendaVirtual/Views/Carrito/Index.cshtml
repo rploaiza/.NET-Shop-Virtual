@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TiendaVirtual.Producto>
+
+@{
+    ViewBag.Title = "Carrito";
+    Double result = 0;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Articulo
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Precio)
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img class="card-img-top" src="~/Resources/@Html.DisplayFor(modelItem => item.Imagen)" style="width:50%; align-self:center;">
+                                </td>
+                                <td style="text-align:left;">
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Precio)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Borrar", "DeleteCarrito", new { id = item.Id})
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header">Total</h5>
+                <div class="card-body">
+                    <p class="card-text" style="text-align:center;">Los componentes que seleccionaste te hacen un consumo de:</p>
+
+                    @foreach (var item in Model)
+                    {
+
+                        result += item.Precio;
+
+                    }
+                    <h3 class="card-text" style="text-align:center;"> @result€</h3>
+                    @Html.ActionLink("Pago", "AddPedido", null, new { @class = "btn btn-success btn-lg btn-block" })
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
