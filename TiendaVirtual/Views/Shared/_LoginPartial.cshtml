@@ -13,6 +13,11 @@
                 @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
             </li>
             <li class="nav-item nav-link"><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+            @if (User.Identity.GetUserName() == "admin@admin.es")
+            {
+                <li class="nav-item nav-link">@Html.ActionLink("Productos", "Index", "Productoes")</li>
+
+            }
         </ul>
     }
 }

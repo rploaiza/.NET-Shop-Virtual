@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TiendaVirtual.Producto>
 
 @{
-    Layout = null;
+    ViewBag.Title = "Producto";
 }
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Nuevo Producto", "Create")
     </p>
     <table class="table">
         <tr>
@@ -27,15 +27,17 @@
                 @Html.DisplayNameFor(model => model.Precio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Imagen)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Cantidad)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
+
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
@@ -47,19 +49,20 @@
                 @Html.DisplayFor(modelItem => item.Precio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Imagen)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Cantidad)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                <img src="~/Resources/@Html.DisplayFor(modelItem => item.Imagen)" style="width:25%" />
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalle", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.Id })
             </td>
         </tr>
-    }
-    
+        }
+
     </table>
 </body>
 </html>

@@ -16,6 +16,8 @@ namespace TiendaVirtual.Controllers
         // GET: Carrito
         public ActionResult Index(CarritoCompra cart)
         {
+
+            ViewData["Carrito"] = cart.Count();
             return View(cart);
         }
         public ActionResult Carrito(int id, CarritoCompra carrito)
@@ -40,6 +42,7 @@ namespace TiendaVirtual.Controllers
         [Authorize]
         public ActionResult AddPedido(CarritoCompra carrito)
         {
+            ViewData["Carrito"] = carrito.Count();
             var query = from producto in db.Producto
                         where producto.Id == pedidosProd.id_producto
                         select producto;
@@ -70,6 +73,7 @@ namespace TiendaVirtual.Controllers
                 }
                 db.SaveChanges();
                 carrito.Clear();
+                ViewData["Carrito"] = carrito.Count();
                 return View("Compra");
             }
         }

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -27,29 +28,33 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
-                    <li class="nav-item nav-link" style="text-align:center;">
-                        Carrito
-                        <a href='@Url.Action("Index", "Carrito")'>
-                            <img src='@Url.Content("~/Resources/tienda-online.png")' />
-                        </a>
-                    </li>
-                    @Html.Partial("_Product")
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </form>
-        </div>
-    </nav>
-    <br /><br />
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - @Html.ActionLink("PC Shop,", "Contact", "Home") Polígono industrial Las Salinas , 30840, Alhama de Murcia, Murcia.</p>
-        </footer>
-    </div>
+                        @if (User.Identity.GetUserName() != "admin@admin.es")
+                        {
+                        <li>
+                            <a class="nav-item nav-link" style="text-align:center;" href='@Url.Action("Index", "Carrito")'>
+                                Carrito
+                                <img src='@Url.Content("~/Resources/tienda-online.png")' />
+                            </a>
+                        </li>
+                        @Html.Partial("_Product")
+                    }
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </form>
+            </div>
+        </nav>
+        <br /><br />
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - @Html.ActionLink("PC Shop,", "Contact", "Home") Polígono industrial Las Salinas , 30840, Alhama de Murcia, Murcia.</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

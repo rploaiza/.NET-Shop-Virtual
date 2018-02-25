@@ -1,7 +1,7 @@
 ﻿@model TiendaVirtual.Producto
 
 @{
-    Layout = null;
+    ViewBag.Title = "Details Product";
 }
 
 <!DOCTYPE html>
@@ -19,48 +19,48 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Nombre)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Nombre)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Descripcion)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Descripcion)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Precio)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Precio)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Imagen)
             </dt>
-    
+
             <dd>
-                @Html.DisplayFor(model => model.Imagen)
+                <img src="~/Resources/@Html.DisplayFor(model => model.Imagen)"/> 
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Cantidad)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Cantidad)
             </dd>
-    
+
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Volver", "Index")
     </p>
 </body>
 </html>

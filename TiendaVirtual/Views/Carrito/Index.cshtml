@@ -32,22 +32,22 @@
 
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>
-                                    <img class="card-img-top" src="~/Resources/@Html.DisplayFor(modelItem => item.Imagen)" style="width:50%; align-self:center;">
-                                </td>
-                                <td style="text-align:left;">
-                                    @Html.DisplayFor(modelItem => item.Nombre)
+                        <tr>
+                            <td>
+                                <img class="card-img-top" src="~/Resources/@Html.DisplayFor(modelItem => item.Imagen)" style="width:50%; align-self:center;">
+                            </td>
+                            <td style="text-align:left;">
+                                @Html.DisplayFor(modelItem => item.Nombre)
 
-                                    @Html.DisplayFor(modelItem => item.Descripcion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Precio)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Borrar", "DeleteCarrito", new { id = item.Id})
-                                </td>
-                            </tr>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Precio)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Borrar", "DeleteCarrito", new { id = item.Id })
+                            </td>
+                        </tr>
                         }
 
                     </table>
