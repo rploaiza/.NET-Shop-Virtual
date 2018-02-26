@@ -10,6 +10,7 @@ using TiendaVirtual;
 
 namespace TiendaVirtual.Controllers
 {
+    [Authorize(Users = "admin@admin.es")]
     public class ProductoesController : Controller
     {
         private tienda_virtual2018Entities db = new tienda_virtual2018Entities();

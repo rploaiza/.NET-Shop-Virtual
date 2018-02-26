@@ -1,22 +1,35 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    <form id="logoutForm" runat="server">
+        <asp:Login ID="Login1" runat="server" OnAuthenticate="ValidateUser"></asp:Login>
+    </form>
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logoutForm" }))
     {
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            <li class="nav-item">
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            <li class="nav-item nav-link"><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+            @if (User.Identity.GetUserName() == "admin@admin.es")
+            {
+                <li class="nav-item nav-link">@Html.ActionLink("Productos", "Index", "Productoes")</li>
+
+            }
         </ul>
     }
 }
 else
 {
-        <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
-            <li class="nav-item">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-        </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+        <li style="text-align:center;">
+            <a class="nav-item nav-link" href='@Url.Action("Login", "Account")'>
+                Log in
+                <img src='@Url.Content("~/Resources/login.png")' />
+            </a>
+        </li>
+    </ul>
 }

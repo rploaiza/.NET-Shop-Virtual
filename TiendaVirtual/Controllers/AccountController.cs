@@ -55,8 +55,9 @@ namespace TiendaVirtual.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(string returnUrl, CarritoCompra carritoCompra)
         {
+            ViewData["Carrito"] = carritoCompra.Count();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -137,8 +138,9 @@ namespace TiendaVirtual.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Register(CarritoCompra carritoCompra)
         {
+            ViewData["Carrito"] = carritoCompra.Count();
             return View();
         }
 

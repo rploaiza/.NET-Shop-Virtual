@@ -11,33 +11,20 @@
     <title>Index</title>
 </head>
 <body>
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="jumbotron embed-responsive-item" style="background-image: url('/Resources/14305781945251135741.jpg'); padding-top:17%">
     </div>
 
     <div class="row">
         @foreach (var item in Model)
         {
-            <!--<div class="col-md-4">
-                <h2> Html.DisplayFor(modelItem => item.Nombre)</h2>
-
-
-                <a href="Url.Action("Delete", "movies", new { id = item.Imagen })" title="Edit">
-                    <img src="~/Resources/(item.Imagen)" width="100px" />
-                </a>
-                <p>Html.DisplayFor(modelItem => item.Descripcion)</p>
-                Html.ActionLink("Detalle", "Details", null, new { id = item.Id }, new { class = "btn btn-primary" })
-            </div>-->
         <div class="col-md-4">
             <div class="card">
                 <h5 class="card-header">@Html.DisplayFor(modelItem => item.Nombre)</h5>
-                <img class="card-img-top" src="~/Resources/@(item.Imagen)" width="200px">
+                <img class="card-img-top" src=@Html.DisplayFor(modelItem => item.Imagen) style="width:50%; align-self:center;">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Descripcion)</p>
-                    @Html.ActionLink("Detalle", "Details", null, new { id = item.Id }, new { @class = "btn btn-primary" })
+                    <p class="card-text" style="text-align:center;">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                    <h3 class="card-text" style="text-align:center;">@Html.DisplayFor(modelItem => item.Precio)€</h3>
+                    @Html.ActionLink("Detalle", "Details", null, new { id = item.Id }, new { @class = "btn btn-success", Style="display:block;" })
                 </div>
             </div>
         </div>

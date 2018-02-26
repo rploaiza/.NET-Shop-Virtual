@@ -1,0 +1,82 @@
+﻿@model TiendaVirtual.Producto
+
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.Nombre);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h4>Producto</h4>
+    <hr />
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="col-6"><img class="card-img-top" src=@Html.DisplayFor(model => model.Imagen) style="margin-left:50%;"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header">@Html.DisplayFor(model => model.Nombre)</h5>
+                <div class="card-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Descripcion)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Precio)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Precio)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Cantidad)
+                        </dt>
+
+                        <dd>
+                            @if (Model.Cantidad == 0)
+                            {
+                                <button type="button" class="btn btn-danger">
+                                    Agotado <span class="badge badge-light">0</span>
+                                    <span class="sr-only">unread messages</span>
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-success">
+                                    Stock <span class="badge badge-light"> @Html.DisplayFor(model => model.Cantidad)</span>
+                                    <span class="sr-only">unread messages</span>
+                                </button>
+                            }
+
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (Model.Cantidad != 0)
+    {
+        @Html.ActionLink("Añadir al carrito", "Carrito", "Carrito", new { id = Model.Id }, new { @class = "btn btn-success btn-lg btn-block" })
+
+    }
+
+</body>
+</html>
