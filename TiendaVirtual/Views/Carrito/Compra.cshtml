@@ -1,10 +1,13 @@
 ﻿
 
 @{
-    ViewBag.Title = "Facturacion";
+                /**/
+
+                ViewBag.Title = "Facturacion";
 }
 
 <h1 class="text-success">Gracias por tu compra.</h1>
 <h2 class="text-success">Para completar tu compra deposita en nuestras cuentas bancarias.</h2>
 <br /><br /><br /><hr />
-<h4 class="text-info" style="text-align:center"> Adios... Regresa pronto</h4>
+<h4 style="text-align:center"> @Html.ActionLink("PC Shop", "Index", null, new { @class = "text-info" })</h4>
+
