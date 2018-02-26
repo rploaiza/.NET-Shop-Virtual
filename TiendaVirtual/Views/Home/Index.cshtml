@@ -20,7 +20,7 @@
         <div class="col-md-4">
             <div class="card">
                 <h5 class="card-header">@Html.DisplayFor(modelItem => item.Nombre)</h5>
-                <img class="card-img-top" src="~/Resources/@(item.Imagen)" style="width:50%; align-self:center;">
+                <img class="card-img-top" src=@Html.DisplayFor(modelItem => item.Imagen) style="width:50%; align-self:center;">
                 <div class="card-body">
                     <p class="card-text" style="text-align:center;">@Html.DisplayFor(modelItem => item.Descripcion)</p>
                     <h3 class="card-text" style="text-align:center;">@Html.DisplayFor(modelItem => item.Precio)€</h3>
